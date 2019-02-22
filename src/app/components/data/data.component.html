@@ -5,7 +5,7 @@
 
   <div>
 
-    <div class="form-group row">
+    <div class="form-group row" [ngClass]="{'has-danger': !forma.get('nombre').valid}">
       <label class="col-2 col-form-label">Nombre</label>
       <div class="col-8">
 
@@ -13,6 +13,15 @@
                type="text"
                placeholder="Nombre"
                formControlName="nombre">
+
+        <div  *ngIf="forma.controls['nombre'].errors?.required"
+              class="form-control-feedback">
+          El nombre es necesario
+        </div>
+        <div  *ngIf="forma.controls['nombre'].errors?.minlength"
+              class="form-control-feedback">
+          Minimo 3 caracteres
+        </div>
       </div>
     </div>
 
