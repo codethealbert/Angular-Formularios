@@ -68,13 +68,49 @@
         </div>
     </div>
 
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Pais</label>
+        <div class="col-md-8">
+            <select [(ngModel)]="usuario.pais"
+                name="pais"
+                class="form-control">
 
+                <option value="">Seleccione un pais</option>
+                <option *ngFor="let pais of paises" 
+                    [value]="pais.codigo">{{ pais.nombre}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+            <label class="col-2 col-form-label">Sexo</label>
+            <div class="col-md-8">
+                <label class="custom-control custom-radio">
+                    <input [(ngModel)]="usuario.sexo"
+                        name="sexo" 
+                        type="radio" 
+                        value="hombre"
+                        class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Hombre</span>
+                </label>
+                <label class="custom-control custom-radio">
+                        <input [(ngModel)]="usuario.sexo"
+                            name="sexo" 
+                            type="radio" 
+                            value="mujer"
+                            class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Mujer</span>
+                    </label>
+            </div>
+    </div>
 
     <div class="form-group row">
         <label class="col-2 col-form-label">&nbsp;</label>
         <div class="input-group col-md-8">
+                <!-- [disabled]="!forma.valid" -->
             <button
-                [disabled]="!forma.valid"
                 type="submit" 
                 class="btn btn-outline-primary">
             Guardar
@@ -83,3 +119,7 @@
     </div>
 
 </form>
+
+<pre>
+    {{ usuario | json}}
+</pre>
