@@ -17,7 +17,8 @@ export class TemplateComponent {
     apellido: null,
     correo: null,
     pais: '',
-    sexo: 'hombre'
+    sexo: 'Hombre',
+    acepta: false
   };
 
   paises = [
@@ -31,7 +32,7 @@ export class TemplateComponent {
     }
   ];
 
-
+  sexos = ['Hombre', 'Mujer', 'Sin definir'];
 
 
   constructor() { }

@@ -3,3 +3,6 @@
 .main-container {
     margin-top: 50px;
 }
+.texto-danger {
+    color: #d9534f;
+}
