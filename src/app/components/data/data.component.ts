@@ -25,7 +25,7 @@ export class DataComponent {
     this.forma = new FormGroup({
       'nombrecompleto': new FormGroup({
         'nombre': new FormControl('', [Validators.required, Validators.minLength(3)]),
-      'apellido': new FormControl('', Validators.required)
+      'apellido': new FormControl('', [Validators.required, this.noHerrera])
       }),
       'correo': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
       'pasatiempos': new FormArray([
@@ -42,18 +42,27 @@ export class DataComponent {
     );
   }
 
+  noHerrera( control: FormControl): {[s: string]: boolean} {
+    if (control.value === 'herrera') {
+      return {
+        noherrera: true
+      };
+    }
+    return null;
+  }
+
   guardarCambios() {
     console.log(this.forma.value);
     console.log(this.forma);
 
     // this.forma.reset(this.usuario);
-    this.forma.reset({
+    /* this.forma.reset({
       nombrecompleto: {
         nombre: '',
         apellido: ''
       },
       correo: ''
-    });
+    }); */
   }
 
 }
